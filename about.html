@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Geofratian.com</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> <style>
+        /* Basic styling for an image - you can expand this in your style.css */
+        .profile-image {
+            display: block; /* Makes it easier to margin auto for centering */
+            max-width: 250px; /* Adjust as needed, makes image responsive */
+            height: auto;     /* Maintain aspect ratio */
+            margin: 20px auto; /* Adds some space around it and centers it if block */
+            border-radius: 8px; /* Optional: adds rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <h1>About Me</h1>
         <nav>
@@ -19,11 +30,20 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <p>This is where I'll write about myself.</p>
+        <section id="about-content">
+            <h2>A Little Bit About Myself</h2>
+            
+            <img src="images/test.png" alt="A test iamge" class="test-image">
+
+            <p>This is where I'll write about myself. You can add paragraphs here to describe your background, education, experiences, or anything else you'd like to share.</p>
+            <p>For example, you might talk about your journey, your passions, and what drives you.</p>
+            </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 Geo Fratian. All rights reserved.</p>
-    </footer>
+        <p>&copy; 2025 Geo Fratian. All rights reserved.</p> </footer>
+
 </body>
 </html>
