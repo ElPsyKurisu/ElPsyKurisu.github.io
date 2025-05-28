@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Geofratian.com</title>
+    <link rel="stylesheet" href="css/style.css"> <style>
+        /* Basic styling for the form - you can expand this in your style.css */
+        #contact-form-section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* So padding doesn't add to width */
+        }
+        .form-group textarea {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 100px;
+        }
+        .form-group button {
+            background-color: #333; /* Same as header */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .form-group button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Contact Me</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="interests.html">Interests</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-form-section">
+            <h2>Get in Touch</h2>
+            <p>Please fill out the form below, and it will help you prepare an email to send to geofratian@gmail.com.</p>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contact_name">Your Name:</label>
+                    <input type="text" id="contact_name" name="name" required placeholder="e.g., Jane Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="contact_email">Your Email:</label>
+                    <input type="email" id="contact_email" name="email" required placeholder="e.g., jane.doe@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="contact_subject">Subject:</label>
+                    <input type="text" id="contact_subject" name="subject" required placeholder="e.g., Inquiry about Research">
+                </div>
+
+                <div class="form-group">
+                    <label for="contact_message">Message:</label>
+                    <textarea id="contact_message" name="message" rows="6" required placeholder="Your message here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Prepare Email</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p> </footer>
+
+    <script>
+        // Ensure the DOM is fully loaded before attaching event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the default form submission behavior
+
+                    // Get form values
+                    const name = document.getElementById('contact_name').value;
+                    const email = document.getElementById('contact_email').value; // User's email
+                    const subject = document.getElementById('contact_subject').value;
+                    const message = document.getElementById('contact_message').value;
+
+                    // Construct the mailto link
+                    // The body will include the sender's name and email for your reference
+                    const mailtoRecipient = 'geofratian@gmail.com';
+                    let mailtoLink = `mailto:${mailtoRecipient}`;
+                    mailtoLink += `?subject=${encodeURIComponent(subject)}`;
+                    mailtoLink += `&body=${encodeURIComponent("Message from: " + name + " (" + email + ")\n\n" + message)}`;
+
+                    // Open the user's default email client
+                    window.location.href = mailtoLink;
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
