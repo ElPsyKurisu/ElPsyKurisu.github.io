@@ -46,3 +46,12 @@ footer {
     color: #fff;
     margin-top: 20px;
 }
+
+#backgroundAnimationCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
