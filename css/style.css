@@ -55,3 +55,82 @@ footer {
     height: 100vh;
     z-index: -1;
 }
+
+/* Research Page Project Styling */
+.research-project {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.research-project:last-child {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+.project-title {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.image-gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1 1 200px; /* Images can grow/shrink, base size 200px */
+}
+
+.image-gallery .single-image { /* In case an image group only has one image or for specific layout */
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-description {
+  line-height: 1.6;
+  color: #555;
+}
+
+.project-description p em {
+  color: #777;
+  font-style: italic;
+}
+
+.gallery-navigation {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.gallery-navigation .prev-btn,
+.gallery-navigation .next-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gallery-navigation .prev-btn:hover,
+.gallery-navigation .next-btn:hover {
+  background-color: #0056b3;
+}
+
+.research-content-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
