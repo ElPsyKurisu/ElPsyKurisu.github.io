@@ -134,3 +134,37 @@ footer {
   margin: 20px auto;
   padding: 0 15px;
 }
+
+/* Project Slideshow Navigation Arrows */
+.project-navigation-arrows {
+  text-align: center; /* Centers the buttons if they are inline-block */
+  margin-top: 20px;
+  margin-bottom: 30px; /* Added more bottom margin for spacing */
+}
+
+.arrow-btn {
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px; /* Space between buttons */
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.arrow-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.arrow-btn:active {
+  transform: translateY(1px); /* Slight press down effect */
+}
+
+/* Initially hide all research projects with CSS.
+   JavaScript will then show the first one.
+   This prevents a flash of all projects before JS loads. */
+.research-project {
+   /* display: none; */ /* JS now handles initial show/hide to prevent issues if JS fails */
+}
