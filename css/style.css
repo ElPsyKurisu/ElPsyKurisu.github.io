@@ -36,7 +36,7 @@ nav a {
 
 main {
     padding: 20px;
-    text-align: center; /* Just for this basic example */
+    /* text-align: center; /* Removed for more specific control */
 }
 
 footer {
@@ -72,6 +72,7 @@ footer {
   color: #333;
   margin-bottom: 15px;
   font-size: 1.8em;
+  text-align: center; /* Centering project titles */
 }
 
 .image-gallery {
@@ -79,6 +80,7 @@ footer {
   flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 15px;
+  justify-content: center; /* Center images if they don't fill the row */
 }
 
 .image-gallery img {
@@ -100,6 +102,7 @@ footer {
 .project-description {
   line-height: 1.6;
   color: #555;
+  text-align: left; /* Align project description text to the left */
 }
 
 .project-description p em {
@@ -167,4 +170,112 @@ footer {
    This prevents a flash of all projects before JS loads. */
 .research-project {
    /* display: none; */ /* JS now handles initial show/hide to prevent issues if JS fails */
+}
+
+/* Timeline Specific Styles */
+.timeline {
+    position: relative;
+    max-width: 800px; /* Max width for the timeline */
+    margin: 20px auto; /* Center the timeline */
+    padding: 20px 0;
+    border-left: 3px solid #007bff; /* Timeline central line */
+}
+
+.timeline-event {
+    padding: 10px 20px;
+    position: relative;
+    margin-left: 30px; /* Space from the timeline line */
+    margin-bottom: 20px; /* Space between events */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Optional: Add a dot or marker on the timeline line for each event */
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -39px; /* Adjust to align with the border-left of .timeline */
+    top: 15px; /* Adjust vertical position */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #007bff; /* Dot color */
+    border: 3px solid #fff; /* Optional: make the dot stand out */
+}
+
+.timeline-date {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.timeline-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Project Page Specific Styles */
+.project-image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between images */
+    justify-content: center; /* Center images in the container */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.project-image-gallery img {
+    max-width: 48%; /* Example: 2 images per row, considering gap */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-blog-text {
+    line-height: 1.7;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff; /* Optional: give it a slightly different background */
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    text-align: left; /* Align blog text to the left */
+}
+
+.project-blog-text p {
+    margin-bottom: 15px;
+}
+
+/* Center main headings for project pages too */
+main > h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Ensure main container for project specific content is also centered and has max-width */
+main > p, /* For 'Completed on: [Date]' */
+main > .project-image-gallery,
+main > .project-blog-text {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px; /* Consistent padding */
+    padding-right: 15px; /* Consistent padding */
+}
+main > p { /* Specifically for 'Completed on: [Date]' paragraph */
+    text-align: center; /* Center this paragraph */
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Ensure the timeline container itself also has text-align:left if needed, or rely on child elements */
+#timeline-container {
+    /* max-width: 900px; /* Max width is on .timeline now */
+    /* margin: 20px auto; /* Centering is on .timeline now */
+    /* padding: 0 15px; /* Padding is on .timeline now */
+    /* text-align: left; /* Ensures timeline events are not center-aligned by main's previous text-align:center */
 }
