@@ -330,3 +330,21 @@ main > .project-blog-text {
     text-align: center;
     font-weight: bold;
 }
+
+/* Button-like link style */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* A primary button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover, .button-link:focus {
+    background-color: #0056b3; /* A darker shade on hover/focus */
+    color: white;
+    text-decoration: none;
+}
