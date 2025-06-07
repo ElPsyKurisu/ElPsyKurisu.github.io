@@ -351,42 +351,51 @@ main > .project-blog-text {
     text-decoration: none;
 }
 
-/* New Animated Timeline Styles (Scoped) */
+/* New Animated Timeline Styles (Scoped) - Reverted to CodePen defaults for testing */
+#animated-timeline-container {
+    background-color: #03011f; /* Temporary dark background like CodePen */
+    padding: 1px 0; /* To contain child margins and ensure layout */
+    /* font-family: "Source Sans Pro"; /* Already set globally, or should be if desired */
+    /* color: #6cacc5; /* Default text color for timeline content if not overridden by children */
+}
+
 #animated-timeline-container ul {
   padding: 50px 0;
 }
 
 #animated-timeline-container ul li {
-  position:relative;
+  position: relative;
   list-style-type: none;
   width: 6px;
-  background-color: #ccc; /* Adjusted for light background visibility */
+  background-color: white; /* Reverted to CodePen's original for testing */
   margin: 0 auto;
   padding-top: 50px;
+  box-sizing: border-box; /* Explicitly set */
 }
 
 #animated-timeline-container ul li::after {
-  background: #fff;
-  border: 2px solid #007bff; /* Added border for visibility on light bg */
+  background: white; /* Reverted to CodePen's original */
   content: '';
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  position:absolute;
-  left:50%;
+  position: absolute;
+  left: 50%;
   transform: translateX(-50%);
   bottom: 0;
+  box-sizing: border-box; /* Explicitly set */
 }
 
-#animated-timeline-container ul li div{
+#animated-timeline-container ul li div {
   position: relative;
   width: 400px;
   padding: 15px;
   border-radius: 5px;
   bottom: 0;
-  background: #eef6ff; /* Lighter background for content boxes */
-  color: #333; /* Darker text for readability */
-  border: 1px solid #007bff; /* Border to match theme */
+  background: rgba(42,50,113, .28); /* Reverted to CodePen's original */
+  color: #6cacc5; /* Reverted to CodePen's original text color */
+  box-sizing: border-box; /* Explicitly set */
+  /* border: 1px solid #007bff; /* Removed */
 }
 
 #animated-timeline-container ul li:nth-child(odd) div {
@@ -402,34 +411,32 @@ main > .project-blog-text {
   font-size: 18px;
   display: block;
   margin-bottom: 10px;
-  color: #007bff; /* Themed time color */
+  /* color property removed to inherit from parent div's #6cacc5 */
 }
 
-/* Copied p styling from .timeline-title a for consistency */
 #animated-timeline-container p {
-    font-size: 1.2em; /* Assuming this is desired from old .timeline-title */
-    margin-bottom: 5px; /* Assuming this is desired from old .timeline-title */
+    /* font-size and margin-bottom removed to match CodePen more closely */
 }
 #animated-timeline-container p a {
-    text-decoration: none;
-    color: #007bff;
+    text-decoration: none; /* Keep this */
+    /* color property removed to inherit or use browser default against dark div */
 }
 #animated-timeline-container p a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Keep this */
 }
 
 
-#animated-timeline-container ul li div {
+#animated-timeline-container ul li div { /* This is a duplicate selector from above, for animation properties */
   visibility: hidden;
   opacity: 0;
   transition: all .5s ease-in-out;
 }
 
-#animated-timeline-container ul li:nth-child(odd) div {
+#animated-timeline-container ul li:nth-child(odd) div { /* This is a duplicate selector from above */
   transform: translate3d(200px, 0, 0);
 }
 
-#animated-timeline-container ul li:nth-child(even) div {
+#animated-timeline-container ul li:nth-child(even) div { /* This is a duplicate selector from above */
   transform: translate3d(-200px, 0, 0);
 }
 
