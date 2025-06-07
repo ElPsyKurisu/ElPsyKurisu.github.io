@@ -12,66 +12,70 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextBtn) {
       nextBtn.style.display = 'none';
     }
-    return; 
-  }
+    // Do not return here if other scripts on the page need to run
+    // This part of the script is for .research-project slideshow,
+    // the timeline script below should still initialize.
+  } else {
+    // Only run slideshow logic if projects exist
+    function showProject(index) {
+      projects.forEach((project, idx) => {
+        project.style.display = (idx === index) ? 'block' : 'none';
+      });
+    }
 
-  function showProject(index) {
-    projects.forEach((project, idx) => {
-      // Assuming 'block' is the desired display style for visible projects.
-      // If projects use a different display style (e.g., 'flex'), adjust here.
-      project.style.display = (idx === index) ? 'block' : 'none';
-    });
-  }
+    showProject(currentProjectIndex); // Initial display
 
-  // Initial display of the first project
-  showProject(currentProjectIndex);
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentProjectIndex++;
+        if (currentProjectIndex >= projects.length) {
+          currentProjectIndex = 0;
+        }
+        showProject(currentProjectIndex);
+      });
+    }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      currentProjectIndex++;
-      if (currentProjectIndex >= projects.length) {
-        currentProjectIndex = 0; // Loop to the first project
-      }
-      showProject(currentProjectIndex);
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      currentProjectIndex--;
-      if (currentProjectIndex < 0) {
-        currentProjectIndex = projects.length - 1; // Loop to the last project
-      }
-      showProject(currentProjectIndex);
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentProjectIndex--;
+        if (currentProjectIndex < 0) {
+          currentProjectIndex = projects.length - 1;
+        }
+        showProject(currentProjectIndex);
+      });
+    }
   }
 });
 
 // New Animated Timeline Script
-var items = document.querySelectorAll("#animated-timeline-container li");
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll("#animated-timeline-container li");
 
-function isItemInView(item){
-  var rect = item.getBoundingClientRect();
-  return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
+  if (items.length === 0) {
+    return; // No timeline items found, so no need to set up listeners or run functions
+  }
 
-function callbackFunc() {
-    // Check if items exist to avoid errors if the timeline is not on the current page
-    if (items.length > 0) {
-        for (var i = 0; i < items.length; i++) {
-          if (isItemInView(items[i])) {
-            items[i].classList.add("show");
-          }
-        }
+  function isItemInView(item) {
+    const rect = item.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+  }
+
+  function callbackFunc() {
+    for (let i = 0; i < items.length; i++) {
+      if (isItemInView(items[i])) {
+        items[i].classList.add("show");
+      }
     }
   }
 
-  // listen for events
-  window.addEventListener("load", callbackFunc);
+  // Initial check once DOM is loaded and items are potentially in view
+  callbackFunc();
+
   window.addEventListener("resize", callbackFunc);
   window.addEventListener("scroll", callbackFunc);
+});
