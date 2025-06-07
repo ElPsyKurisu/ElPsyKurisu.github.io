@@ -184,11 +184,12 @@ footer {
 }
 
 
-/* Timeline Styles */
+/* Old Timeline Styles - Commented Out */
+/*
 .timeline {
     position: relative;
-    max-width: 800px; /* Adjust as needed */
-    margin: 20px auto; /* Centering the timeline */
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px 0;
     list-style: none;
 }
@@ -198,17 +199,17 @@ footer {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 40px; /* Adjust to align with the dot */
+    left: 40px;
     width: 4px;
-    background: #007bff; /* Timeline color */
-    margin-left: -2px; /* Center the line on the dot's center */
+    background: #007bff;
+    margin-left: -2px;
 }
 
 .timeline-event {
     position: relative;
     margin-bottom: 20px;
-    padding-left: 70px; /* Space for the dot and some padding */
-    background-color: #f9f9f9; /* Light background for event box */
+    padding-left: 70px;
+    background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 6px;
     padding-top: 10px;
@@ -219,14 +220,14 @@ footer {
 .timeline-event::before {
     content: '';
     position: absolute;
-    left: 40px; /* Should match timeline::before left + half its width if line is centered */
-    top: 18px; /* Adjust to vertically center with text or date */
-    width: 12px; /* Dot size */
-    height: 12px; /* Dot size */
+    left: 40px;
+    top: 18px;
+    width: 12px;
+    height: 12px;
     background: white;
-    border: 3px solid #007bff; /* Dot border color */
+    border: 3px solid #007bff;
     border-radius: 50%;
-    transform: translateX(-50%); /* Center the dot on the line */
+    transform: translateX(-50%);
     z-index: 1;
 }
 
@@ -251,6 +252,7 @@ footer {
 .timeline-title a:hover {
     text-decoration: underline;
 }
+*/
 
 /* Project Page Specific Styles */
 .project-image-gallery {
@@ -347,4 +349,102 @@ main > .project-blog-text {
     background-color: #0056b3; /* A darker shade on hover/focus */
     color: white;
     text-decoration: none;
+}
+
+/* New Animated Timeline Styles (Scoped) */
+#animated-timeline-container ul {
+  padding: 50px 0;
+}
+
+#animated-timeline-container ul li {
+  position:relative;
+  list-style-type: none;
+  width: 6px;
+  background-color: #ccc; /* Adjusted for light background visibility */
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+#animated-timeline-container ul li::after {
+  background: #fff;
+  border: 2px solid #007bff; /* Added border for visibility on light bg */
+  content: '';
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+#animated-timeline-container ul li div{
+  position: relative;
+  width: 400px;
+  padding: 15px;
+  border-radius: 5px;
+  bottom: 0;
+  background: #eef6ff; /* Lighter background for content boxes */
+  color: #333; /* Darker text for readability */
+  border: 1px solid #007bff; /* Border to match theme */
+}
+
+#animated-timeline-container ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+#animated-timeline-container ul li:nth-child(even) div {
+  left: -445px;
+}
+
+#animated-timeline-container time {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+  color: #007bff; /* Themed time color */
+}
+
+/* Copied p styling from .timeline-title a for consistency */
+#animated-timeline-container p {
+    font-size: 1.2em; /* Assuming this is desired from old .timeline-title */
+    margin-bottom: 5px; /* Assuming this is desired from old .timeline-title */
+}
+#animated-timeline-container p a {
+    text-decoration: none;
+    color: #007bff;
+}
+#animated-timeline-container p a:hover {
+    text-decoration: underline;
+}
+
+
+#animated-timeline-container ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+#animated-timeline-container ul li:nth-child(odd) div {
+  transform: translate3d(200px, 0, 0);
+}
+
+#animated-timeline-container ul li:nth-child(even) div {
+  transform: translate3d(-200px, 0, 0);
+}
+
+#animated-timeline-container ul li.show div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  #animated-timeline-container ul li div {
+    width: 250px;
+  }
+  #animated-timeline-container ul li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
 }
