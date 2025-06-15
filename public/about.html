@@ -4,17 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - geofratian.com</title>
-    <link rel="stylesheet" href="css/style.css"> <style>
-        /* Basic styling for an image - you can expand this in your style.css */
-        .profile-image {
-            display: block; /* Makes it easier to margin auto for centering */
-            max-width: 250px; /* Adjust as needed, makes image responsive */
-            height: auto;     /* Maintain aspect ratio */
-            margin: 20px auto; /* Adds some space around it and centers it if block */
-            border-radius: 8px; /* Optional: adds rounded corners */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
 
@@ -35,7 +25,10 @@
         <section id="about-content">
             <h2>A Little Bit About Myself</h2>
             
-            <img src="images/test.png" alt="A test iamge" class="test-image">
+            <div class="photo-booth">
+            <div class="photo-track">
+            </div>
+            </div>
 
             <p>I am a PhD Student studying materials engineering at Brown University.</p>
             </section>
@@ -44,5 +37,62 @@
     <footer>
         <p>&copy; 2025 Geo Fratian. All rights reserved.</p> </footer>
 
+    <script>
+    // Wait for the page to load before running the script
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- CONFIGURATION ---
+        // 1. Add the names of your image files here
+        const imageFiles = [
+        '/images/Personal/About/IMG_20250424_215934 (6).jpg',
+        '/images/Personal/About/IMG_20250424_215934 (7).jpg',
+        '/images/Personal/About/IMG_20250424_215934.jpg'
+        ];
+        // 2. Set the time between swaps in milliseconds (15 seconds = 15000)
+        const swapInterval = 15000;
+
+
+        // --- SCRIPT LOGIC ---
+        const track = document.querySelector('.photo-booth .photo-track');
+        let currentIndex = 0;
+
+        // Create and add the image elements to the track
+        imageFiles.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        track.appendChild(img);
+        });
+
+        // Function to slide the track to the correct photo
+        function showPhoto(index) {
+        const offset = index * -100; // Calculate the percentage to move
+        track.style.transform = 'translateX(' + offset + '%)';
+        }
+
+        // Function to show the next photo
+        function nextPhoto() {
+        // Move to the next index, looping back to 0 at the end
+        currentIndex = (currentIndex + 1) % imageFiles.length;
+        showPhoto(currentIndex);
+        }
+
+        // --- INITIALIZATION ---
+        // 1. Choose a random starting photo
+        currentIndex = Math.floor(Math.random() * imageFiles.length);
+        // 2. Temporarily disable the animation for the initial placement
+        track.style.transition = 'none';
+        // 3. Show the random photo
+        showPhoto(currentIndex);
+        // 4. Re-enable the animation after a tiny delay
+        setTimeout(() => {
+        track.style.transition = 'transform 0.8s ease-in-out';
+        }, 50);
+
+        // --- AUTO-SWAP ---
+        // Start the automatic swapping
+        setInterval(nextPhoto, swapInterval);
+
+    });
+    </script>
 </body>
 </html>

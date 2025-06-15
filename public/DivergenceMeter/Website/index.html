@@ -88,6 +88,44 @@
 
         };
     </script>
+    <script>
+        (function() {
+            let lastHeight = 0;
+            let debounceTimeout;
+
+            // This function sends the final, stable height to your main page
+            function sendHeight() {
+                const currentHeight = document.body.scrollHeight;
+                if (currentHeight !== lastHeight) {
+                    lastHeight = currentHeight;
+                    parent.postMessage({ iframeHeight: currentHeight }, '*');
+                }
+            }
+
+            // This function waits for the content to stop changing before sending the height
+            function onContentChange() {
+                // Clear any pending height update
+                clearTimeout(debounceTimeout);
+                // Set a new timer. If nothing else changes for 300ms, send the height.
+                debounceTimeout = setTimeout(sendHeight, 300);
+            }
+
+            // Create a modern "observer" to watch for any changes to the page content
+            const observer = new MutationObserver(onContentChange);
+            
+            // Tell the observer to watch the entire document for changes
+            observer.observe(document.body, {
+                childList: true,    // watch for added/removed elements
+                subtree: true,      // watch all nested elements
+                attributes: true,   // watch for style/attribute changes
+                characterData: true // watch for text changes
+            });
+
+            // Also check when the window is resized
+            window.addEventListener('resize', onContentChange);
+        })();
+    </script>
+    
 </body>
 
 </html>
