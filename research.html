@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Geofratian.com</title>
+    <title>Research - geofratian.com</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,10 +20,67 @@
         </nav>
     </header>
     <main>
-        <p>This is where I'll write about myself.</p>
+        <div class="research-content-container">
+            <div style="text-align: center; margin: 20px 0;">
+              <a href="gallery_view.html" class="button-link">View Project Galleries</a>
+            </div>
+            <h2>Research Overview</h2>
+            <p>Welcome to the Research Landing Page! Here I want to showcase what research tasks I have participated in and helped with. Just above feel free to check out the gallery with tons of photos pertaining to my research and general experiences and below scroll through my project build timeline which consists of various instrumentation and other things I've built in my time in Research.</p>
+
+            <h2>Project Build Timeline</h2>
+            <div id="animated-timeline-container"> <!-- Wrapper for CSS scoping -->
+              <ul>
+                <li>
+                  <div>
+                    <time>2023-09-18</time>
+                    <p><a href="projects/project_magnet_maker.html">Magnet Maker</a>: The first build project of my PhD laying the groundwork for the rest to follow. Used in various projects afterwards and still operating to this day.</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <time>2023-11-30</time>
+                    <p><a href="projects/project_vector_magnet.html">Vector Magnet</a>: A failed project that set the groundwork for the successful ST-FMR setup later on. Valuable lessons were learned and the importance of tempering ones expectations.</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <time>2024-03-10</time>
+                    <p><a href="projects/project_moke_pcb.html">MOKE PCB</a>: Originally started in 2023, it took two revisions and countless hours to design a high performance RF compatible PCB for use in our MOKE system.</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <time>2024-06-03</time>
+                    <p><a href="projects/project_gaussmeter.html">MIT Gaussmeter</a>: A collaboration with MIT on testing a new layout for the analog gaussmeter designed by David Bono and where I learned about the beautiful program KiCAD is. This gaussmeter, when properly configured provides stable magnetic field strength measurements with an accuracy of 1ppm coupled with a feedback control system and automatic safety shutoff mechanism.</p>
+                  </div>
+                </li>
+                 <li>
+                  <div>
+                    <time>2024-06-20</time>
+                    <p><a href="projects/project_stfmr.html">ST-FMR</a>: A wildly successful project that taught me the delays in research and the importance of building up capabilities. This was supposed to be my original first task and yet it took me just under a year complete.</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <time>2025-04-28</time>
+                    <p><a href="projects/project_amr.html">AMR (Transport Measurement)</a>: This general purpose transport measurement setup made use of an existing magnet older than anyone in my lab (including the PI) and taught me the importance of deadlines having completed it less than 24 hours before it HAD to be operational.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <h2>Research Papers</h2>
+            <div class="paper-details"> <!-- Added a wrapper for paper details for better styling if needed -->
+                <h3>Paper Title 1: N/A</h3>
+                <p><strong>Authors:</strong> N/A</p>
+                <p><strong>Publication:</strong> N/A</p>
+                <p><strong>Description:</strong> N/A</p>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2025 Geo Fratian. All rights reserved.</p>
     </footer>
+    <script src="js/script.js"></script> <!-- This script might not be needed if gallery view handles its own JS -->
 </body>
 </html>

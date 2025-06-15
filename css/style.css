@@ -55,3 +55,403 @@ footer {
     height: 100vh;
     z-index: -1;
 }
+
+/* Research Page Project Styling */
+.research-project {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.research-project:last-child {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+.project-title {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  /* text-align: center; /* Already centered by main's text-align:center or more specific rules below */
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+  justify-content: center; /* Added to center images if they don't fill the row */
+}
+
+.image-gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1 1 200px; /* Images can grow/shrink, base size 200px */
+}
+
+.image-gallery .single-image { /* In case an image group only has one image or for specific layout */
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-description {
+  line-height: 1.6;
+  color: #555;
+  text-align: left; /* Ensure project descriptions are left-aligned */
+  max-width: 800px; /* Constrain width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-description p em {
+  color: #777;
+  font-style: italic;
+}
+
+.gallery-navigation {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.gallery-navigation .prev-btn,
+.gallery-navigation .next-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gallery-navigation .prev-btn:hover,
+.gallery-navigation .next-btn:hover {
+  background-color: #0056b3;
+}
+
+.research-content-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+  text-align: left; /* Override main's text-align: center for this container */
+}
+
+.research-content-container > h2 { /* e.g. "Project Build Timeline", "Research Papers" */
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+
+/* Project Slideshow Navigation Arrows */
+.project-navigation-arrows {
+  text-align: center; /* Centers the buttons if they are inline-block */
+  margin-top: 20px;
+  margin-bottom: 30px; /* Added more bottom margin for spacing */
+}
+
+.arrow-btn {
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px; /* Space between buttons */
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.arrow-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.arrow-btn:active {
+  transform: translateY(1px); /* Slight press down effect */
+}
+
+/* Initially hide all research projects with CSS.
+   JavaScript will then show the first one.
+   This prevents a flash of all projects before JS loads. */
+.research-project {
+   /* display: none; */ /* JS now handles initial show/hide to prevent issues if JS fails */
+}
+
+
+/* Old Timeline Styles - Commented Out */
+/*
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px 0;
+    list-style: none;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    width: 4px;
+    background: #007bff;
+    margin-left: -2px;
+}
+
+.timeline-event {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 70px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 18px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 3px solid #007bff;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.timeline-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.timeline-title a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.timeline-title a:hover {
+    text-decoration: underline;
+}
+*/
+
+/* Project Page Specific Styles */
+.project-image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between images */
+    justify-content: center; /* Center images if they don't fill the row */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0; /* Light grey background for gallery area */
+    border-radius: 8px;
+}
+
+.project-image-gallery img {
+    max-width: 100%; /* Ensure images are responsive within the gallery */
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Consider fixed height for consistency, or masonry if image sizes vary a lot */
+@media (min-width: 600px) {
+    .project-image-gallery img {
+        max-width: calc(50% - 15px); /* Two images per row on larger screens */
+    }
+}
+
+@media (min-width: 900px) {
+    .project-image-gallery img {
+        max-width: calc(33.333% - 15px); /* Three images per row */
+    }
+}
+
+.project-blog-text {
+    line-height: 1.8;
+    color: #333;
+    background-color: #ffffff; /* White background for text */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    text-align: left; /* Override general text-align center if any */
+    margin-top: 15px;
+}
+
+.project-blog-text p {
+    margin-bottom: 1em;
+}
+
+/* Ensure main content on project pages is also somewhat constrained and centered */
+/* This might be redundant if already handled by .research-content-container or similar */
+main > h1, main > p.completed-date-class, /* Add a class for completed date for styling if needed */
+main > .project-image-gallery,
+main > .project-blog-text {
+    max-width: 900px; /* Max width for project content */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling for Research Paper listings in research.html */
+.research-content-container h3 { /* Paper titles */
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.4em;
+    color: #444;
+}
+
+.research-content-container .paper-details p { /* Paragraphs containing author, publication, description */
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px; /* Constrain width of paper details */
+}
+
+.research-content-container .paper-details p strong { /* Authors line */
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Button-like link style */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* A primary button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover, .button-link:focus {
+    background-color: #0056b3; /* A darker shade on hover/focus */
+    color: white;
+    text-decoration: none;
+}
+
+/* New Animated Timeline Styles (Scoped) - Reverted to CodePen defaults for testing */
+#animated-timeline-container {
+    background-color: #03011f; /* Temporary dark background like CodePen */
+    padding: 1px 0; /* To contain child margins and ensure layout */
+    /* font-family: "Source Sans Pro"; /* Already set globally, or should be if desired */
+    /* color: #6cacc5; /* Default text color for timeline content if not overridden by children */
+}
+
+#animated-timeline-container ul {
+  padding: 50px 0;
+}
+
+#animated-timeline-container ul li {
+  position: relative;
+  list-style-type: none;
+  width: 6px;
+  background-color: white; /* Reverted to CodePen's original for testing */
+  margin: 0 auto;
+  padding-top: 50px;
+  box-sizing: border-box; /* Explicitly set */
+}
+
+#animated-timeline-container ul li::after {
+  background: white; /* Reverted to CodePen's original */
+  content: '';
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  box-sizing: border-box; /* Explicitly set */
+}
+
+#animated-timeline-container ul li div {
+  position: relative;
+  width: 400px;
+  padding: 15px;
+  border-radius: 5px;
+  bottom: 0;
+  background: rgba(42,50,113, .28); /* Reverted to CodePen's original */
+  color: #6cacc5; /* Reverted to CodePen's original text color */
+  box-sizing: border-box; /* Explicitly set */
+  /* border: 1px solid #007bff; /* Removed */
+}
+
+#animated-timeline-container ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+#animated-timeline-container ul li:nth-child(even) div {
+  left: -445px;
+}
+
+#animated-timeline-container time {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+  /* color property removed to inherit from parent div's #6cacc5 */
+}
+
+#animated-timeline-container p {
+    /* font-size and margin-bottom removed to match CodePen more closely */
+}
+#animated-timeline-container p a {
+    text-decoration: none; /* Keep this */
+    /* color property removed to inherit or use browser default against dark div */
+}
+#animated-timeline-container p a:hover {
+    text-decoration: underline; /* Keep this */
+}
+
+
+#animated-timeline-container ul li div { /* This is a duplicate selector from above, for animation properties */
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+#animated-timeline-container ul li:nth-child(odd) div { /* This is a duplicate selector from above */
+  transform: translate3d(200px, 0, 0);
+}
+
+#animated-timeline-container ul li:nth-child(even) div { /* This is a duplicate selector from above */
+  transform: translate3d(-200px, 0, 0);
+}
+
+#animated-timeline-container ul li.show div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  #animated-timeline-container ul li div {
+    width: 250px;
+  }
+  #animated-timeline-container ul li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Magnet Maker - geofratian.com</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Magnet Maker</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../interests.html">Interests</a></li>
+                <li><a href="../contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>Completed on: 2023-09-18</p>
+        <div class="project-image-gallery">
+            <img src="../images/Research/build/magnet_maker/magnet_maker_cad.png" alt="Magnet Maker Blueprint">
+            <img src="../images/Research/build/magnet_maker/magnet_maker_machine.jpg" alt="Machined Magnet Maker">
+            <p>Here we see the blueprint of the magnet maker as it was machined to spec before we attach the necessary hardware to actually be able to make some magnets!</p>
+            <img src="../images/Research/build/magnet_maker/Magnet_maker_in_progress.jpg" alt="In Progress">
+            <img src="../images/Research/build/magnet_maker/magnet_maker_complete.jpg" alt="Magnet Maker Complete">
+            <img src="../images/Research/build/magnet_maker/Magnet_makeer_julian.jpg" alt="Magnet Maker Julian">
+            <p>Here we see the magnet maker in progress and then finally complete! The final image is of an undergrad in our lab (Julian!) using it to create precision windings for a vector magnet.</p>
+            <video autoplay loop muted playsinline>
+            <source src="../images/Research/build/magnet_maker/magnet_maker_demo.webm" type="video/webm">
+  
+            <source src="../images/Research/build/magnet_maker/magnet_maker_demo.mp4" type="video/mp4">
+  
+            Your browser does not support the video tag.
+            </video>
+            <p>A short video of me testing the magnet maker before it is finalized.</p>
+        </div>
+        <div class="project-blog-text">
+            <p>
+                This project was one of the first projects I worked on after starting my PhD as an intermediary step towards building up our lab capabilities. Since our lab focuses on ferroic materials we despretely needed a way to build robust custom built magnets for use in transport setups. The way it works is quite simple; we want wire to be wound as tightly and neatly as possible to increase the amount of turns per unit length (why would we want that?) and thus a simple stepper motor coupled with a microcontroller with a potentiometer attached allows the user to variably control the speed (slower to start the winding then speed up so it doesnt take forever). The magnet is sandwhich between two aluminum plates that can be variably changed to adjust the width of the magnet and the height is whatever the user desire up till the 3.5" the plates provide. The entire rod is coated in vaseline and a neat trick from my PI Lucas is to attach a thin sheet of paper between the rod and where you start the magnet to make it easier to transfer off of the winding rod and to be melted into its shape. This is done by literally shorting the two ends of the coil with a DC power supply and watching the thermoplastic coating on the wires melt and fuse while trying to not breathe in the fumes. If the magnet is especially large, I also like to use a heatgun on the outside to speed up the process.
+            </p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Geo Fratian. All rights reserved.</p>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
