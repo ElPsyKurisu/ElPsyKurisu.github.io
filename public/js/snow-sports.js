@@ -1,5 +1,3 @@
-// js/snow-sports.js - Final Version with "One Try" Logic
-
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-memory-btn');
     if (!generateBtn) return;
@@ -13,11 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementById('error-message');
 
     let selectedMemory;
-    let selectedQuestion;
+    let selectedQuestion; // Variable to store the randomly chosen question
 
     generateBtn.addEventListener('click', async () => {
-        // Based on your structure, the fetch path is relative to the HTML file
-        const memResponse = await fetch('../snowmemories.json');
+        const memResponse = await fetch('../question_system/snowmemories.json');
         const memories = await memResponse.json();
         selectedMemory = memories[Math.floor(Math.random() * memories.length)];
 
@@ -26,11 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.textContent = '';
 
         if (selectedMemory.isSensitive) {
-            const qResponse = await fetch('../questions.json');
+            // Fetch the entire bank of questions
+            const qResponse = await fetch('../question_system/questions.json');
             const questions = await qResponse.json();
             
+            // Pick one random question from the bank
             selectedQuestion = questions[Math.floor(Math.random() * questions.length)];
 
+            // Display the randomly chosen question
             questionText.textContent = selectedQuestion;
             answerInput.value = '';
             modal.style.display = 'block';
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const userAnswer = answerInput.value;
         if (!userAnswer || !selectedQuestion) return;
 
+        // Send BOTH the question and the user's answer to the API
         const response = await fetch('/api/check-answer', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -55,24 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
 
         if (result.correct) {
-            // This part stays the same for a correct answer
             modal.style.display = 'none';
             showMemory(selectedMemory);
         } else {
-            // =======================================================
-            // == NEW LOGIC FOR AN INCORRECT ANSWER ==
-            // =======================================================
-            // 1. Alert the user that they were incorrect.
-            alert('Sorry, that was not correct. Please try generating a new memory.');
-            // 2. Hide the modal to end their turn.
-            modal.style.display = 'none';
-            // =======================================================
-            // == END OF NEW LOGIC ==
-            // =======================================================
+            errorMessage.textContent = 'Sorry, that is not correct.';
         }
     });
 
     function showMemory(memory) {
+        // ... same showMemory function as before ...
         if (memory.type === 'image') {
             display.innerHTML = `<img src="${memory.url}" alt="A snow memory" style="max-width: 500px;">`;
         } else if (memory.type === 'video') {
