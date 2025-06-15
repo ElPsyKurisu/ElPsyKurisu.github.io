@@ -1,3 +1,4 @@
+//this first part is just for the gallery-view aka class=research-project
 document.addEventListener('DOMContentLoaded', () => {
   const projects = document.querySelectorAll('.research-project');
   const prevBtn = document.getElementById('prevProjectBtn');
