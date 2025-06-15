@@ -26,6 +26,22 @@
             <h1>Snow Sports</h1>
             <p>Details about my experiences with Snow Sports coming soon.</p>
         </section>
+        <h2>A Memory from the Slopes</h2>
+        <button id="generate-memory-btn">Generate a Snow Memory ❄️</button>
+
+        <div id="memory-display" style="margin-top: 20px;"></div>
+
+        <div id="sensitive-modal" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 2rem; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 10;">
+            <h3>This content requires an answer.</h3>
+            <p id="question-text"></p>
+            <input type="text" id="answer-input" placeholder="Your answer...">
+            <button id="submit-answer-btn">Submit</button>
+            <p id="error-message" style="color:red;"></p>
+        </div>
+        <script src="../js/script.js"></script> 
+        <script src="../js/snow-sports.js" defer></script> 
+        </body>
+        </html>
     </main>
 
     <footer>
