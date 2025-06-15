@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showMemory(selectedMemory);
         } else {
             errorMessage.textContent = 'Sorry, that is not correct.';
+            modal.style.display = 'none';
         }
     });
 
