@@ -56,6 +56,15 @@ footer {
     z-index: -1;
 }
 
+/*Steins;Gate */
+#content-iframe {
+  display: block;
+  width: 95%; 
+  margin: 40px auto;
+  height: 85vh; /* 85% of the browser window's height */
+  border: 1px solid #ccc; 
+}
+
 /* Research Page Project Styling */
 .research-project {
   margin-bottom: 40px;
@@ -176,83 +185,38 @@ footer {
   transform: translateY(1px); /* Slight press down effect */
 }
 
-/* Initially hide all research projects with CSS.
-   JavaScript will then show the first one.
-   This prevents a flash of all projects before JS loads. */
-.research-project {
-   /* display: none; */ /* JS now handles initial show/hide to prevent issues if JS fails */
+/* ======================================================= */
+/* STYLES FOR THE AUTO-SWAPPING PHOTO BOOTH                */
+/* ======================================================= */
+
+/* 1. The main container or "window" */
+.photo-booth {
+  width: 90%;
+  max-width: 500px; /* Adjust max width as needed */
+  height: 400px; /* Adjust height as needed */
+  margin: 40px auto; /* Centers the booth on the page */
+  border: 8px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative; /* This is crucial for positioning the track inside */
+  overflow: hidden; /* This is the magic that hides the off-screen photos */
 }
 
-
-/* Old Timeline Styles - Commented Out */
-/*
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px 0;
-    list-style: none;
+/* 2. The "track" that holds all the images side-by-side */
+.photo-booth .photo-track {
+  height: 100%;
+  display: flex; /* Aligns all images in a row */
+  
+  /* This transition creates the smooth sliding animation */
+  transition: transform 0.8s ease-in-out; 
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 40px;
-    width: 4px;
-    background: #007bff;
-    margin-left: -2px;
+/* 3. The style for each photo inside the track */
+.photo-booth .photo-track img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* Ensures images fill the frame without stretching */
 }
-
-.timeline-event {
-    position: relative;
-    margin-bottom: 20px;
-    padding-left: 70px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-}
-
-.timeline-event::before {
-    content: '';
-    position: absolute;
-    left: 40px;
-    top: 18px;
-    width: 12px;
-    height: 12px;
-    background: white;
-    border: 3px solid #007bff;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-.timeline-date {
-    font-weight: bold;
-    color: #555;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-}
-
-.timeline-title {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.timeline-title a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-.timeline-title a:hover {
-    text-decoration: underline;
-}
-*/
 
 /* Project Page Specific Styles */
 .project-image-gallery {
